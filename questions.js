@@ -1,222 +1,112 @@
 let questions = [
     {
         numb: 1,
-        question: "The book 'Bangla Sahapath' is intended for which grade level?",
-        answer: "B. Class Nine and Ten",
+        question: "একটি বিন্দু আধান Q এর কারণে r দূরত্বে বৈদ্যুতিক বিভব V দেওয়া হয় সূত্র দ্বারা:",
+        answer: "খ. V = kQ/r",
         options: [
-            "A. Class Eight and Nine",
-            "B. Class Nine and Ten",
-            "C. Class Ten and Eleven",
-            "D. Class Eleven and Twelve"
+            "ক. V = kQ/r²",
+            "খ. V = kQ/r",
+            "গ. V = Q/r",
+            "ঘ. V = k/rQ"
         ]
     },
     {
         numb: 2,
-        question: "According to the cover page, who is responsible for the curriculum and textbook production in Bangladesh?",
-        answer: "B. National Curriculum and Textbook Board",
+        question: "বৈদ্যুতিক ক্ষেত্র E এ একটি আধান q এর উপর ক্রিয়াশীল বল F হলো:",
+        answer: "ক. F = qE",
         options: [
-            "A. Ministry of Education",
-            "B. National Curriculum and Textbook Board",
-            "C. Private Publishers",
-            "D. School Teachers"
+            "ক. F = qE",
+            "খ. F = E/q",
+            "গ. F = q/E",
+            "ঘ. F = q + E"
         ]
     },
     {
         numb: 3,
-        question: "The 2025 edition of 'Bangla Sahapath' includes which literary genres?",
-        answer: "C. Novels and Plays",
+        question: "ভোল্টেজ (V), চার্জ (Q) এবং ক্যাপাসিট্যান্স (C) এর মধ্যে সম্পর্ক কী?",
+        answer: "গ. V = Q/C",
         options: [
-            "A. Novels only",
-            "B. Poetry and Essays",
-            "C. Novels and Plays",
-            "D. Short Stories and Poems"
+            "ক. V = QC",
+            "খ. V = C/Q",
+            "গ. V = Q/C",
+            "ঘ. V = Q + C"
         ]
     },
     {
         numb: 4,
-        question: "The 2025 edition of 'Bangla Sahapath' is a revised version of which year's curriculum?",
-        answer: "C. 2013",
+        question: "একটি ক্যাপাসিটরে সঞ্চিত শক্তির পরিমাণ দেওয়া হয় সূত্র দ্বারা:",
+        answer: "ঘ. ½ CV²",
         options: [
-            "A. 2010",
-            "B. 2012",
-            "C. 2013",
-            "D. 2017"
+            "ক. CV",
+            "খ. CV²",
+            "গ. ½ QV",
+            "ঘ. ½ CV²"
         ]
     },
     {
         numb: 5,
-        question: "Which of the following is NOT a mentioned objective of institutional education?",
-        answer: "D. Promoting political activism",
+        question: "যদি একটি সার্কিটে ভোল্টেজ 6V এবং রেজিস্ট্যান্স 5Ω, 10Ω, 15Ω শ্রেণীবদ্ধভাবে সংযুক্ত থাকে, তাহলে মোট কারেন্ট কত?",
+        answer: "খ. 0.2 A",
         options: [
-            "A. Imparting knowledge",
-            "B. Developing skilled human resources",
-            "C. Creating a humane and scientifically-minded society",
-            "D. Promoting political activism"
+            "ক. 0.1 A",
+            "খ. 0.2 A",
+            "গ. 0.5 A",
+            "ঘ. 1 A"
         ]
     },
     {
         numb: 6,
-        question: "What is considered the backbone of a nation and the lifeblood of institutional education?",
-        answer: "D. Education and Curriculum",
+        question: "তামার রোধাঙ্ক (resistivity) কত?",
+        answer: "গ. 1.68 × 10⁻⁸ Ω·m",
         options: [
-            "A. Curriculum and Textbook Board",
-            "B. Moral Values",
-            "C. Patriotism",
-            "D. Education and Curriculum"
+            "ক. 1.00 × 10⁻⁸ Ω·m",
+            "খ. 1.59 × 10⁻⁸ Ω·m",
+            "গ. 1.68 × 10⁻⁸ Ω·m",
+            "ঘ. 2.44 × 10⁻⁸ Ω·m"
         ]
     },
     {
         numb: 7,
-        question: "According to the text, what is the most important element for implementing the curriculum?",
-        answer: "C. Textbooks",
+        question: "সার্কিটে রোধগুলি শ্রেণীবদ্ধভাবে সংযুক্ত থাকলে মোট রোধ কীভাবে নির্ণয় করা হয়?",
+        answer: "ক. সমস্ত রোধের যোগফল",
         options: [
-            "A. Teachers",
-            "B. Students",
-            "C. Textbooks",
-            "D. Evaluation Methods"
+            "ক. সমস্ত রোধের যোগফল",
+            "খ. রোধগুলির পারস্পরিক যোগফলের বিপরীত",
+            "গ. বৃহত্তম রোধের মান",
+            "ঘ. ক্ষুদ্রতম রোধের মান"
         ]
     },
     {
         numb: 8,
-        question: "Which aspect of students is considered when creating textbooks?",
-        answer: "A. Age and mental tendency",
+        question: "3V এবং 1.5V এর দুটি ব্যাটারি শ্রেণীবদ্ধভাবে সংযুক্ত হলে মোট ভোল্টেজ কত হবে?",
+        answer: "খ. 4.5V",
         options: [
-            "A. Age and mental tendency",
-            "B. Economic status",
-            "C. Social background",
-            "D. Physical abilities"
+            "ক. 3V",
+            "খ. 4.5V",
+            "গ. 6V",
+            "ঘ. 1.5V"
         ]
     },
     {
         numb: 9,
-        question: "The selected novels and dramas in the book are selected to help students understand what?",
-        answer: "B. The origin and development of Bengali literature's two special branches",
+        question: "ওহমের সূত্রে বলা হয়েছে:",
+        answer: "ক. I = V/R",
         options: [
-            "A. Bengali culture",
-            "B. The origin and development of Bengali literature's two special branches",
-            "C. The history of Bangladesh",
-            "D. The process of war"
+            "ক. I = V/R",
+            "খ. V = I/R",
+            "গ. R = I/V",
+            "ঘ. I = VR"
         ]
     },
     {
         numb: 10,
-        question: "What is emphasized to make the textbook enjoyable?",
-        answer: "D. Making it joyful and entertaining",
+        question: "বৈদ্যুতিক ক্ষেত্রের একক কী?",
+        answer: "গ. N/C",
         options: [
-            "A. Complex language",
-            "B. Clear presentation of subject matter",
-            "C. Inclusion of the latest data",
-            "D. Making it joyful and entertaining"
+            "ক. V/m",
+            "খ. J/C",
+            "গ. N/C",
+            "ঘ. A/m"
         ]
-    },
-    {
-        numb: 11,
-        question: "What aspect of the Bengali Academy has been followed in the textbook?",
-        answer: "B. Standard spelling rules",
-        options: [
-            "A. Pronunciation guidelines",
-            "B. Standard spelling rules",
-            "C. Grammar rules",
-            "D. Literary style"
-        ]
-    },
-    {
-        numb: 12,
-        question: "In the context of literature, what is 'Upanyas' (উপন্যাস) an example of?",
-        answer: "C. A literary genre (novel)",
-        options: [
-            "A. A type of poem",
-            "B. A specific song",
-            "C. A literary genre (novel)",
-            "D. A form of dance"
-        ]
-    },
-    {
-        numb: 13,
-        question: "What is the most crucial element in a novel, according to the text?",
-        answer: "C. The plot",
-        options: [
-            "A. The story itself",
-            "B. The characters",
-            "C. The plot",
-            "D. The setting"
-        ]
-    },
-    {
-        numb: 14,
-        question: "What is the term used to describe the arrangement or organization of events in a novel?",
-        answer: "B. Plot",
-        options: [
-            "A. Character development",
-            "B. Plot",
-            "C. Theme",
-            "D. Setting"
-        ]
-    },
-    {
-        numb: 15,
-        question: "According to the text, what is the main difference between a novel and a short story?",
-        answer: "C. Novels show life's entirety, while short stories focus on a specific aspect or moment.",
-        options: [
-            "A. Novels are written in verse, while short stories are in prose.",
-            "B. Novels focus on a specific moment, while short stories show life's entirety.",
-            "C. Novels show life's entirety, while short stories focus on a specific aspect or moment.",
-            "D. Novels are longer, while short stories are shorter."
-        ]
-    },
-    {
-        numb: 16,
-        question: "What determines the language, style, and tone of a novel?",
-        answer: "B. The subject matter",
-        options: [
-            "A. The author's mood",
-            "B. The subject matter",
-            "C. The reader's preference",
-            "D. The publisher's guidelines"
-        ]
-    },
-    {
-        numb: 17,
-        question: "When did the practice of writing novels begin in Europe?",
-        answer: "B. Around the sixteenth century with the beginning of modernity",
-        options: [
-            "A. During the Renaissance",
-            "B. Around the sixteenth century with the beginning of modernity",
-            "C. During the Enlightenment",
-            "D. In the Middle Ages"
-        ]
-    },
-    {
-        numb: 18,
-        question: "Which of the following is considered the first successful novel in Bengali literature?",
-        answer: "C. Durgeshnandini",
-        options: [
-            "A. Phulmoni O Korunar Biboron",
-            "B. Alaler Ghorer Dulal",
-            "C. Durgeshnandini",
-            "D. Kapalkundala"
-        ]
-    },
-    {
-        numb: 19,
-        question: "Who is considered the creator of modern Bengali novel?",
-        answer: "B. Bankim Chandra Chattopadhyay",
-        options: [
-            "A. Rabindranath Tagore",
-            "B. Bankim Chandra Chattopadhyay",
-            "C. Sarat Chandra Chattopadhyay",
-            "D. Mir Mosharraf Hossain"
-        ]
-    },
-    {
-        numb: 20,
-        question: "Which of the following is NOT a notable novel by Bankim Chandra Chattopadhyay?",
-        answer: "D. Ghare Baire",
-        options: [
-            "A. Kapalkundala",
-            "B. Bishbrikkho",
-            "C. Krishnakanter Will",
-            "D. Ghare Baire"
-        ]
-    },
+    }
 ];
