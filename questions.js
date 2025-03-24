@@ -328,7 +328,7 @@ let questions = [
             "গ. x = 2",
             "ঘ. x ∈ R"
         ]
-    }
+    },
     {
         numb: 31,
         question: "x² = 25 হলে, x এর মান কত?",
