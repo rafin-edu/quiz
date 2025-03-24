@@ -442,3 +442,150 @@ body {
     background: #c40094;
     color: #fff;
 }
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 5%;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content p {
+        font-size: 14px;
+    }
+
+    .home-content .start-btn {
+        width: 150px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .popup-info {
+        width: 90%;
+        padding: 10px 15px;
+    }
+
+    .popup-info h2 {
+        font-size: 32px;
+    }
+
+    .popup-info .info {
+        font-size: 14px;
+    }
+
+    .popup-info .btn-group .info-btn {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .quiz-section .quiz-box {
+        width: 90%;
+        padding: 15px 20px;
+    }
+
+    .quiz-box h1 {
+        font-size: 24px;
+    }
+
+    .quiz-header span {
+        font-size: 16px;
+    }
+
+    .quiz-box .question-text {
+        font-size: 18px;
+    }
+
+    .option-list .option {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .quiz-footer .question-total {
+        font-size: 14px;
+    }
+
+    .quiz-footer .next-btn {
+        width: 80px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .quiz-section .result-box {
+        width: 90%;
+    }
+
+    .result-box h2 {
+        font-size: 32px;
+    }
+
+    .percentage-container .circular-progress {
+        width: 200px;
+        height: 200px;
+    }
+
+    .percentage-container .circular-progress::before {
+        width: 160px;
+        height: 160px;
+    }
+
+    .circular-progress .progress-value {
+        font-size: 36px;
+    }
+
+    .percentage-container .score-text {
+        font-size: 20px;
+    }
+
+    .buttons button {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+}/* Hamburger Menu */
+.navbar {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background: #09001d;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
