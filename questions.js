@@ -46,7 +46,7 @@ let questions = [
     {
         numb: 5,
         question: "যদি |x - 2| + |x + 3| = 7 হয়, তবে x এর সম্ভাব্য মান কতগুলো?",
-        answer: "গ. 3টি",
+        answer: "গ. ৩টি",
         options: [
             "ক. ১টি",
             "খ. ২টি",
@@ -79,7 +79,7 @@ let questions = [
     {
         numb: 8,
         question: "3x - 4y + 12 = 0 এবং x + 2y - 5 = 0 রেখাদ্বয়ের ছেদবিন্দুর স্থানাঙ্ক কী?",
-        answer: "ক. (2, 1.5)",
+        answer: "ক. (2, 2.7)",
         options: [
             "ক. (2, 2.7)",
             "খ. (1, 2)",
@@ -156,7 +156,7 @@ let questions = [
     {
         numb: 15,
         question: "যদি a⁴ = 81 হয়, তবে a এর মান কত হতে পারে?",
-        answer: "গ. ±3√3",
+        answer: "গ. ±3",
         options: [
             "ক. 9",
             "খ. ±9",
