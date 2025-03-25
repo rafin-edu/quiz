@@ -659,7 +659,6 @@ let questions = [
             "ঘ. হাইড্রোজেন"
         ]
     },
-        questions.push(
     {
         numb: 61,
         question: "RNA এবং DNA উভয়েরই কোন উপাদান থাকে?",
