@@ -1,162 +1,192 @@
-const startBtn = document.querySelector('.start-btn');
-const popupInfo = document.querySelector('.popup-info');
-const exitBtn = document.querySelector('.exit-btn');
-const main = document.querySelector('.main');
-const continueBtn = document.querySelector('.continue-btn');
-const quizSection = document.querySelector('.quiz-section');
-const quizBox = document.querySelector('.quiz-box');
-const resultBox = document.querySelector('.result-box');
-const tryAgainBtn = document.querySelector('.tryAgain-btn');
-const goHomeBtn = document.querySelector('.goHome-btn');
+// DOM Elements
+const elements = {
+    startBtn: document.querySelector('.start-btn'),
+    popupInfo: document.querySelector('.popup-info'),
+    exitBtn: document.querySelector('.exit-btn'),
+    main: document.querySelector('.main'),
+    continueBtn: document.querySelector('.continue-btn'),
+    quizSection: document.querySelector('.quiz-section'),
+    quizBox: document.querySelector('.quiz-box'),
+    resultBox: document.querySelector('.result-box'),
+    tryAgainBtn: document.querySelector('.tryAgain-btn'),
+    goHomeBtn: document.querySelector('.goHome-btn'),
+    nextBtn: document.querySelector('.next-btn'),
+    optionList: document.querySelector('.option-list'),
+    questionText: document.querySelector('.question-text'),
+    questionTotal: document.querySelector('.question-total'),
+    headerScoreText: document.querySelector('.header-score'),
+    scoreText: document.querySelector('.score-text'),
+    circularProgress: document.querySelector('.circular-progress'),
+    progressValue: document.querySelector('.progress-value'),
+    timerDisplay: document.querySelector('.timer')
+};
 
-startBtn.onclick = () => {
-    popupInfo.classList.add('active');
-    main.classList.add('active');
+// Quiz State
+const quizState = {
+    questionCount: 0,
+    questionNumb: 1,
+    userScore: 0,
+    timer: null,
+    timeLeft: 300 // 5 minutes in seconds
+};
+
+// Event Listeners
+elements.startBtn.addEventListener('click', () => {
+    elements.popupInfo.classList.add('active');
+    elements.main.classList.add('active');
+});
+
+elements.exitBtn.addEventListener('click', resetQuiz);
+
+elements.continueBtn.addEventListener('click', () => {
+    elements.quizSection.classList.add('active');
+    elements.popupInfo.classList.remove('active');
+    elements.main.classList.remove('active');
+    elements.quizBox.classList.add('active');
+    
+    startQuiz();
+});
+
+elements.tryAgainBtn.addEventListener('click', restartQuiz);
+elements.goHomeBtn.addEventListener('click', resetQuiz);
+elements.nextBtn.addEventListener('click', nextQuestion);
+
+// Quiz Functions
+function startQuiz() {
+    showQuestions(quizState.questionCount);
+    questionCounter(quizState.questionNumb);
+    updateScoreDisplay();
+    startTimer();
 }
 
-exitBtn.onclick = () => {
-    popupInfo.classList.remove('active');
-    main.classList.remove('active');
+function resetQuiz() {
+    elements.popupInfo.classList.remove('active');
+    elements.main.classList.remove('active');
+    elements.quizSection.classList.remove('active');
+    elements.resultBox.classList.remove('active');
+    
+    clearInterval(quizState.timer);
+    quizState.questionCount = 0;
+    quizState.questionNumb = 1;
+    quizState.userScore = 0;
+    quizState.timeLeft = 300;
 }
 
-continueBtn.onclick = () => {
-    quizSection.classList.add('active');
-    popupInfo.classList.remove('active');
-    main.classList.remove('active');
-    quizBox.classList.add('active');
-
-    showQuestions(0);
-    questionCounter(1);
-    headerScore();
+function restartQuiz() {
+    elements.quizBox.classList.add('active');
+    elements.resultBox.classList.remove('active');
+    elements.nextBtn.classList.remove('active');
+    
+    quizState.questionCount = 0;
+    quizState.questionNumb = 1;
+    quizState.userScore = 0;
+    quizState.timeLeft = 300;
+    
+    startQuiz();
 }
 
-tryAgainBtn.onclick = () => {
-    quizBox.classList.add('active');
-    nextBtn.classList.remove('active');
-    resultBox.classList.remove('active');
-
-    questionCount = 0;
-    questionNumb = 1;
-    userScore = 0;
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
-
-    headerScore();
+function showQuestions(index) {
+    elements.questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
+    
+    elements.optionList.innerHTML = questions[index].options
+        .map(option => `<div class="option"><span>${option}</span></div>`)
+        .join('');
+    
+    document.querySelectorAll('.option').forEach(option => {
+        option.addEventListener('click', () => optionSelected(option));
+    });
 }
 
-goHomeBtn.onclick = () => {
-    quizSection.classList.remove('active');
-    nextBtn.classList.remove('active');
-    resultBox.classList.remove('active');
-
-    questionCount = 0;
-    questionNumb = 1;
-    userScore = 0;
-    showQuestions(questionCount);
-    questionCounter(questionNumb);
-}
-
-let questionCount = 0;
-let questionNumb = 1;
-let userScore = 0;
-
-const nextBtn = document.querySelector('.next-btn');
-
-nextBtn.onclick = () => {
-    if (questionCount < questions.length - 1) {
-        questionCount++;
-        showQuestions(questionCount);
-
-        questionNumb++;
-        questionCounter(questionNumb);
-
-        nextBtn.classList.remove('active');
+function optionSelected(selectedOption) {
+    const correctAnswer = questions[quizState.questionCount].answer;
+    const allOptions = elements.optionList.children;
+    const isCorrect = selectedOption.textContent === correctAnswer;
+    
+    selectedOption.classList.add(isCorrect ? 'correct' : 'incorrect');
+    
+    if (isCorrect) {
+        quizState.userScore++;
+        updateScoreDisplay();
+    } else {
+        // Highlight correct answer if wrong was selected
+        Array.from(allOptions).find(opt => 
+            opt.textContent === correctAnswer
+        ).classList.add('correct');
     }
-    else {
+    
+    // Disable all options after selection
+    Array.from(allOptions).forEach(opt => {
+        opt.classList.add('disabled');
+        opt.style.pointerEvents = 'none';
+    });
+    
+    elements.nextBtn.classList.add('active');
+}
+
+function nextQuestion() {
+    if (quizState.questionCount < questions.length - 1) {
+        quizState.questionCount++;
+        quizState.questionNumb++;
+        
+        showQuestions(quizState.questionCount);
+        questionCounter(quizState.questionNumb);
+        elements.nextBtn.classList.remove('active');
+    } else {
         showResultBox();
     }
 }
 
-const optionList = document.querySelector('.option-list');
-
-// getting questions and options from array
-function showQuestions(index) {
-    const questionText = document.querySelector('.question-text');
-    questionText.textContent = `${questions[index].numb}. ${questions[index].question}`;
-
-    let optionTag = `<div class="option"><span>${questions[index].options[0]}</span></div>
-                    <div class="option"><span>${questions[index].options[1]}</span></div>
-                    <div class="option"><span>${questions[index].options[2]}</span></div>
-                    <div class="option"><span>${questions[index].options[3]}</span></div>`;
-
-    optionList.innerHTML = optionTag;
-
-    const option = document.querySelectorAll('.option');
-    for (let i = 0; i < option.length; i++) {
-        option[i].setAttribute('onclick', 'optionSelected(this)');
-    }
-}
-
-function optionSelected(answer) {
-    let userAnswer = answer.textContent;
-    let correctAnswer = questions[questionCount].answer;
-    let allOptions = optionList.children.length;
-
-    if (userAnswer == correctAnswer) {
-        answer.classList.add('correct');
-        userScore += 1;
-        headerScore();
-    }
-    else {
-        answer.classList.add('incorrect');
-
-        // if selected answer is incorrect, auto select the correct answer
-        for (i = 0; i < allOptions; i++) {
-            if (optionList.children[i].textContent == correctAnswer) {
-                optionList.children[i].setAttribute('class', 'option correct');
-            }
-        }
-    }
-
-    // if user has selected, disable all options
-    for (i = 0; i < allOptions; i++) {
-        optionList.children[i].classList.add('disabled');
-    }
-
-    nextBtn.classList.add('active');
-}
-
 function questionCounter(index) {
-    const questionTotal = document.querySelector('.question-total');
-    questionTotal.textContent = `${index} of ${questions.length} Questions`;
+    elements.questionTotal.textContent = `${index} of ${questions.length} Questions`;
 }
 
-function headerScore() {
-    const headerScoreText = document.querySelector('.header-score');
-    headerScoreText.textContent = `Score: ${userScore} / ${questions.length}`;
+function updateScoreDisplay() {
+    elements.headerScoreText.textContent = `Score: ${quizState.userScore} / ${questions.length}`;
+}
+
+function startTimer() {
+    clearInterval(quizState.timer);
+    quizState.timer = setInterval(() => {
+        quizState.timeLeft--;
+        updateTimerDisplay();
+        
+        if (quizState.timeLeft <= 0) {
+            clearInterval(quizState.timer);
+            showResultBox();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(quizState.timeLeft / 60);
+    const seconds = quizState.timeLeft % 60;
+    elements.timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
 function showResultBox() {
-    quizBox.classList.remove('active');
-    resultBox.classList.add('active');
+    clearInterval(quizState.timer);
+    elements.quizBox.classList.remove('active');
+    elements.resultBox.classList.add('active');
+    
+    const percentage = Math.round((quizState.userScore / questions.length) * 100);
+    elements.scoreText.textContent = `Your Score ${quizState.userScore} out of ${questions.length} (${percentage}%)`;
+    
+    animateProgress(percentage);
+}
 
-    const scoreText = document.querySelector('.score-text');
-    scoreText.textContent = `Your Score ${userScore} out of ${questions.length}`;
-
-    const circularProgress = document.querySelector('.circular-progress');
-    const progressValue = document.querySelector('.progress-value');
-    let progressStartValue = -1;
-    let progressEndValue = (userScore / questions.length) * 100;
-    let speed = 20;
-
-    let progress = setInterval(() => {
-        progressStartValue++;
-
-        progressValue.textContent = `${progressStartValue}%`;
-        circularProgress.style.background = `conic-gradient(#c40094 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
-
-        if (progressStartValue == progressEndValue) {
-            clearInterval(progress);
+function animateProgress(endValue) {
+    let progress = 0;
+    const speed = 20;
+    const increment = endValue > progress ? 1 : -1;
+    
+    const animation = setInterval(() => {
+        progress += increment;
+        elements.progressValue.textContent = `${progress}%`;
+        elements.circularProgress.style.background = 
+            `conic-gradient(#c40094 ${progress * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+        
+        if ((increment > 0 && progress >= endValue) || (increment < 0 && progress <= endValue)) {
+            clearInterval(animation);
         }
     }, speed);
 }
